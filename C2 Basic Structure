@@ -8,3 +8,58 @@ public class SimpleSample
 首先 Java 大小写敏感
 标准命名规范：类名大写字母开头，CamelCase
 源代码的文件必须与公共类的的名字相同，并用.java作为扩展名。因此上述代码的文件名必须是SimpleSample.java
+One More Time Java大小写敏感
+编译以上源码后会得到一个包含这个类字节码的文件。（Java字节码是Java虚拟机执行的一种指令码）Java编译器将字节码文件自动命名为
+SimpleSample.class ，并与源文件存储在同一个目录下。最后可以使用命令行java SimpleSample。
+当使用 java ClassName 运行编译程序时，Java虚拟机将从指定类中的main方法执行，因此为了代码能够执行，在类的源文件中必须包含一个
+main方法（main必须public）
+Java7之前，可以使用静态初始化运行Java类。但是之后久不行了。
+main（）的返回类型只能是void。
+main（）必须是静态的。如果非静态，那么调用main时，JVM就得实例化它的类。在实例化时，还得调用类的构造函数。如果这个类的构造函数有参数，那么届时就会出现歧义。
+例如：
+public class A{
+
+  public Mainmethod(int i){}
+  public void main(String[] args){}
+
+}此时，实例化类的时候JVM传递什么参数？
+如果去掉 static 编译成功但运行会导致程序失败。
+也可以重载main方法
+public class SimpleSample
+{
+  public static void main(String[] args)
+  {
+    System.out.println("Hi World!");
+  }
+  void main(int args)
+  {
+    System.out.println("This one will not be invoked")
+  }
+}
+Overloading：函数名相同，参数列表不同，返回类型无所谓。
+main（）可以在java中同步 synchronized修饰符可以用于main方法的声明中。
+三种注释：
+1. //
+2. /* …… */
+3. /**开始 */结束 用来自动生成文档，javadoc来提取注释，它被用来生成从需要预定义格式的文档的 Java 源代码至 HTML 格式的 Java 代码文件。
+例如：
+/**
+* <h1>Hello, World!</h1>
+* The HelloWorld program implements an application that
+* simply displays "Hello World!" to the standard output.
+* <p>
+* Giving proper comments in your program makes it more
+* user friendly and it is assumed as a high quality code.
+* 
+*
+* @author  Zara Ali
+* @version 1.0
+* @since   2014-03-31 
+*/
+public class HelloWorld {
+    public static void main(String[] args) {
+        // Prints Hello, World! on standard output.
+        System.out.println("Hello World!");
+    }
+}
+其中@author  Zara Ali  @version 1.0 @since   2014-03-31 这些为javadoc标签
