@@ -1,0 +1,10 @@
+public class SimpleSample
+{
+  public static void main(String[] args)
+  {
+    System.out.println("Hi World!");
+  }
+}
+首先 Java 大小写敏感
+标准命名规范：类名大写字母开头，CamelCase
+源代码的文件必须与公共类的的名字相同，并用.java作为扩展名。因此上述代码的文件名必须是SimpleSample.java
