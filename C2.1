@@ -136,3 +136,17 @@ if(str!=null && str.length()!=0)
 Java API 联机文档:
 http://docs.oracle.com/javase/7/docs/api/
 目前只看到Java7没见到Java8
+
+构建字符串
+由较短的字符串构建字符串时，字符串连接的方式效率较低。每次连接都会构建一个新的String对象，耗时也浪费空间。这里使用StringBuilder类来避免这个问题。
+StringBuilder builder=new StringBuilder();
+当需要添加一部分内容调用append()方法
+builder.append(ch);
+builder.append(str);
+需要构建字符串时，调用toString方法，就可以得道一个String对象，其中包含了builder中的字符序列
+String completedString=builder.toString();
+
+输入输出
+打印输出到"标准输出流"调用System.out.println即可。读取"标准输入流"System.in，要先构造一个Scanner对象，并与"标准输入流"System.in关联。
+Scanner in = new Scanner(System.in);
+现在可以使用Scanner类的各种方法实现输入操作了。
