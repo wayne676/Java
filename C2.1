@@ -150,3 +150,32 @@ String completedString=builder.toString();
 打印输出到"标准输出流"调用System.out.println即可。读取"标准输入流"System.in，要先构造一个Scanner对象，并与"标准输入流"System.in关联。
 Scanner in = new Scanner(System.in);
 现在可以使用Scanner类的各种方法实现输入操作了。
+例如nextLine方法将输入一行
+System.out.println("what is your name");
+String name=in.nextLine();
+读取一个单词是next()，读取一个整数是nextInt(),还有nextDouble()
+System.out.println("how old r u");
+int age=in.nextInt();
+上面代码在控制台输入的时候可以输入多个单词或者数字并以空格分分隔，但是回车后读入的只有第一个单词或者数字。
+并且Scanner类定义在java.util包中，所以在文件头部要使用import java.util.*
+
+格式化输出
+Java沿袭了C的printf方法
+System.out.printf("%8.2f",x);// if x=123.4567 output will be 123.45
+System.out.printf("Hello %s your number is %d", name age);
+日期也可以格式化输出
+System.out.printf("%tc",new Date());//c表示完整的日期和时间
+t后的c也可以换成其他的字母详细的可以自己查阅
+
+文件输入与输出
+读取文件与控制台读取输入类似，用File对象构造一个Scanner对象
+Scanner in = new Scanner(Paths.get("myfile.txt")); //Scanner(File f or String data)
+如果没有Path.get()那么scanner将会把"myfile.tetx"当作字符串解释
+如果文件名中包含反斜杠符号，每个反斜杠前面再加一个反斜杠:
+"c:\\mydirectory\\myfile.txt"。
+之后就可以利用前面的Scanner方法对文件进行操作了。
+写入文件就构造一个PrintWriter对象，构造器只需要提供文件名:
+PrintWriter out=new PrintWriter("c:\\mydirectory\\myfile.txt");
+如果文件不存在，创建该文件。可以像输出到System.out一样使用print，println，printf命令
+
+
