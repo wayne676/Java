@@ -193,3 +193,39 @@ deafult:
 	break;
 }
 case标签可以是char，byte，short，int(或者其他包装器类Character, Byte, Short, Integer), 枚举常量和字符串字面量
+
+大数值
+BigInteger和BigDecimal
+静态方法valueOf将普通的数值转换成大数值
+BigInteger a = BigInteger.valueOf(100);
+大数值运算
+BigInteger c = a.add(b);
+BigInteger d = c.multiply(b.add(BigInteger.valueOf(2)));//d=c*(b+2)
+
+数组
+声明 int[] a;
+new创建数组
+int[] a = new int[100];
+数组长度不要求常量: new int［n］会创建一个长度为n的数组。
+int型数组初始化为0。
+boolean型为false
+object型(String也是对象)为null
+数组长度or数组中元素个数array.length
+
+可以直接初始化数组并赋值的简写形式子:
+int smallPrimes = {2,3,5,7};
+
+匿名数组，因为没有名字所以不能重用
+Java5前没有可变参数，可以涌来传递可变参数
+sum(new int[] {1,2,3,4})
+或者重新初始化一个数组
+smallPrimes＝new int[] {11,13,17,19};
+传统方法
+for(int i = 0;i < a.length; i++)
+	System.out.println(a[i]);
+for each循环
+for(variable : collection) statement
+例如:
+for (int var : a)
+	System.out.println(var);
+简单的打印数组所有值，Arrays类的toString方法(数组是对象，但不是Arrays对象，其父类是object类)。
