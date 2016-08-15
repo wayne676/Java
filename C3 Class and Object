@@ -1,0 +1,58 @@
+封装 encapsulation 
+对象的状态state指对象一组特定的实例域的值。
+
+开发就是设计 类->方法和实例域
+
+构造器的名字应该与类名一样。
+
+Java中 Date类表示时间 GregorianCalendar类表示日期，Calendar类作为更通用的日期类扩展于GregorianCalendar
+
+多个源文件的使用
+许多程序员习惯每一个类存在一个单独的源文件中。例如: Employee类存放在文件Employee.java中，将EmployeeTest类存放在文件EmployeeTest.java中。
+这种情况有两种编译源程序的方法
+1: javac Employee*.java
+2: javac EmployeeTest.java
+使用第二种方式当Java编译器发现EmployeeTest.java使用了Employee类时，会查找Employe.class的文件。
+如果没有找到这个文件, 就会自动搜索Employee.java然后对他进行编译。
+
+如果要访问一个可变对象的引用的时候需要对该对象进行clone
+return hireDay.clone();
+否则会出现
+Employee hary=...;
+Date d=hary.getHireDay();
+此时对d操作hary也会出现相关反应
+
+私有方法 单例模式
+public class Singleton{
+  private static Singleton instance;
+  private Singleton(){}
+  
+  public static Singleton getInstance(){
+    if(instance == null){
+      instance = new Singleton();
+    }
+    return instance;
+  }
+}
+单例的使用public class SingletonPatternDemo {
+   public static void main(String[] args) {
+
+      //不合法的构造函数
+      //编译时错误：构造函数 SingleObject() 是不可见的
+      //SingleObject object = new SingleObject();
+
+      //获取唯一可用的对象
+      SingleObject object = SingleObject.getInstance();
+
+      //显示消息
+      object.showMessage();
+   }
+}
+
+final实例域
+构建对象时必须初始化, 初始化以后值的域还不能被改变。
+大都用语基本类型域或immutable类(域中的每个方法都不会改变其对象, String类就是一个不可变的类)的域。
+
+静态方法和静态域
+
+每一个类都可以有一个main方法。这是一个常用于对类进行单元测试的技巧。
