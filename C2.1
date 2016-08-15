@@ -229,3 +229,53 @@ for(variable : collection) statement
 for (int var : a)
 	System.out.println(var);
 简单的打印数组所有值，Arrays类的toString方法(数组是对象，但不是Arrays对象，其父类是object类)。
+
+数组拷贝
+int[] luckyNumbers=smallPrimes;//两个变量指向同一个数组
+真.拷贝
+int[] copiedLuckyNumbers=Arrays.toCopy(luckyNumbers,luckyNumbers.length);//两个变量两个数组
+长度相同则完美复制, 短了只复制前面的, 长了则后面的与初始化一样0或者false或者null。
+
+命令行参数
+每一个Java应用程序都有一个带String args[]参数的main方法。这个参数表面main方法将接收一个字符串数组，也就是命令行参数。
+public class Message{
+	public static void main(String[] args){
+		if(args[0].equals("-h"))
+			System.out.print("Hello,");
+		else if(args[0].equals("-g");
+		for(int i=1;i<args.length;i++)
+			System.out.print(" "+args[i]);
+		System.out.println("!");
+	}
+}
+如果使用下面这种形式运行这个程序
+java Message -g cruel world
+args数组将包含下列内容:
+args[0]: "-g"
+args[1]: "cruel"
+args[2]: "world"
+这个程序将显示下列信息:
+Goodbye, cruel world!
+
+数组排序 还是Arrays类中的方法: Arrays.sort(a)
+目前Arrays类中方法 1: Arrays.toString() 2: Arrays.toCopy() 3: Arrays.sort()
+另外还有查找 Arrays.binarySearch(type[] a, type v)//返回值为int, 查找成功返回下标，失败, 则返回一个负数。
+也可以指定查找范围Arrays.binarySearch(type[] a, int start, int end, type v)
+static void fill(type[] a, type v)
+static boolean equals(type[] a, type[] b)//完全相同则返回真
+另注意 数组只可以用于基本类型
+
+二维数组
+要么直接初始化，要么声明后new
+int[][] magicSquare={{1,2,3,4}{2,3,4,5}{3,4,5,6}{4,5,6,7}}
+double[][] balances;
+balances=new double[NYEARS][NRATES];
+
+遍历时候要么是普通的嵌套循环遍历, 要么for each嵌套循环遍历
+for(double[] row:a)
+	for(double value:row)
+		do something with value
+多维不规则数组
+int[][] odds=new int[NMAX+1][];
+for(int n=0;n<=NMAX;n++)
+	odds[n]=new int[n+1];
