@@ -64,3 +64,23 @@ Java是按值调用, 有 3 种情况:
 2: 一个方法可以改变一个对象参数的状态
 3: 一个方法不能让对象参数引用一个新的对象 //就像swap函数
 
+Overloading 重载
+方法名相, 参数类型不同。返回类型不算在内。
+
+不写构造器, 系统会自动提供一个默认的无参构造器。并将实例域设为默认值。
+如果自己写了构造器, 系统就不会提供了, 如果此时没有写无参构造器而又调用了他, 那么不合法。
+
+调用另一个构造器
+public Empolyee(double s){
+  //calls Employee(String, double)
+  this("Empolyee #"+nextId, s);
+  nextId++;
+}
+当调用new Employee(70000)时,Employee(double)将调用Employee(String, double)
+
+初始化数据域
+1: constructor
+2: 声明中赋值
+3: 初始化块 //其实就是声明以后用大括号括起来再赋值
+
+
