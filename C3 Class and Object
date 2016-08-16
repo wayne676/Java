@@ -83,4 +83,30 @@ public Empolyee(double s){
 2: 声明中赋值
 3: 初始化块 //其实就是声明以后用大括号括起来再赋值
 
+对象析构与finalize方法
+Java不支持析构器, 但可以为任何一个类添加finalize方法。finalize方法将在垃圾回收期清除对象之前调用。
 
+类的导入
+import java.util.*
+可以使用此包中的所有类
+类名冲突
+import java.util.*;
+import java.sql.*;
+Date today;//Error-- java.util.Date or  java.sql.Date?
+Date类在util和sql中都存在, 此时
+1: 只用到一个Date类
+import java.util.*;
+import java.sql.*;
+import java.util.Date;
+2: 两个都要用, 则使用完整名字
+import java.util.*;
+import java.sql.*;
+java.util.Date deadline = new java.util.Date();
+java.sql.Date today = new java.sql.Date(...);
+
+静态导入
+import static java.lang.System.*;
+可以使用System类中的静态方法和静态域而不必加类名前缀:
+out.println("Doodou World!");
+也可以导入特定的方法
+import static java.lang.System.out;
