@@ -1,0 +1,18 @@
+1. The import javax.servlet can't be resolved
+
+You need to add the Servlet API to your classpath. In Tomcat 6.0, this is in a JAR called servlet-api.jar in Tomcat's lib folder. You can either add a reference to that JAR to the project's classpath, or put a copy of the JAR in your Eclipse project and add it to the classpath from there.
+
+If you want to leave the JAR in Tomcat's lib folder:
+
+Right-click the project, click Properties.
+Choose Java Build Path.
+Click Add External JARs...
+Browse to find servlet-api.jar and select it.
+Click OK to update the build path.
+Or, if you copy the JAR into your project:
+
+Right-click the project, click Properties.
+Choose Java Build Path.
+Click Add JARs...
+Find servlet-api.jar in your project and select it.
+Click OK to update the build path.
