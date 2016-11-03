@@ -1,0 +1,10 @@
+1. Donwload Binary File
+2. Move it to /usr/Library
+3. sudo chmod +x /Library/Tomcat/bin/*.sh
+make it executable
+4. To start it 
+cd /Library/Tomcat/bin
+./catalina.sh start
+5. To stop it
+cd /Library/Tomcat/bin
+./catalina.sh stop
